@@ -1,0 +1,35 @@
+{
+    "extractor": {
+        "cookies": ["chrome"],
+        "twitter":{
+            "users": "https://twitter.com/i/bookmarks",
+            "unique":true,
+            "text-tweets":true,
+            "quoted":true,
+            "retweets":true,
+            "logout":true,
+            "replies":"self",
+            "videos":false,
+            "expand":true,
+            "conversations":true,
+            "filename": "twitter_{tweet_id}_{num}.{extension}",
+            "base-directory": "./",
+            "directory": {                
+                "reply_id != 0 and conversation_id != 0": ["{subcategory}", "{conversation_id}"],
+                "": ["{subcategory}", "{tweet_id}"]
+            },
+            "postprocessors":[
+                {"name": "metadata", "event": "post", "filename": "twitter_{tweet_id}_metadata.json"}
+            ]
+        }
+    },
+    "downloader": {
+
+    },
+    "output": {
+
+    },
+    "postprocessor": {
+
+    }
+}
